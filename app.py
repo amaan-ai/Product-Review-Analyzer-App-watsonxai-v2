@@ -45,7 +45,7 @@ github_link = """
 st.markdown(github_link, unsafe_allow_html=True)
 
 # Adding a header and project description
-st.title("Review Analyzer App - Watsonx.ai")
+st.title("Review Analyzer App - Watsonx.ai - v2")
 st.write("One-stop solution for Review Analysis: Entity detection (PERSON, EMAIL, PHONE, PRODUCT, COMPETITOR), Sentiment assessment, and concise summarization.")
 
 # Creating a layout with two columns

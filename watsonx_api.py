@@ -68,7 +68,7 @@ class checkReview:
         generated_response_sentiment_text  = json.dumps( generated_response_sentiment['results'][0]['generated_text'], indent=2 )
         
         print("\n \n")
-        print("Generated_response_text for entity extraction is: ", generated_response_sentiment_text)
+        print("Generated_sentiment_text for sentiment classification: ", generated_response_sentiment_text)
         
         return generated_response_sentiment_text
     
@@ -86,7 +86,7 @@ class checkReview:
         
         
         print("\n \n")
-        print("Generated_response_text for Summary is: ", generated_response_summary_text)
+        print("Generated_response_summary_text for Summary is: ", generated_response_summary_text)
         
         return generated_response_summary_text
     

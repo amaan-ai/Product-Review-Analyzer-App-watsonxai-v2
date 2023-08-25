@@ -83,7 +83,7 @@ def generate_summary_prompt(input_review):
     summary_prompt = f"""Given a product review as input. You have to generate a shorter summary of that review.
     You can consider the following examples of reviews and their corresponing summary to see how it should be done. Here are examples: \n <start of examples> \n {examples_data_summary_str} \n <end of examples> \n 
     Now, here's the review enclosed within 3 backticks from which you have to generate a short summary: \n <start of review> ``` {input_review} ``` <end of review>  
-    Important point to note: a) Only provide generated summary in your response. b) Strictly do not exceed the summary by 200 characters.
+    Important point to note: a) Only provide generated summary in your response. b) Do not exceed the generated summary length by 250 characters.
     """
     
     return summary_prompt
