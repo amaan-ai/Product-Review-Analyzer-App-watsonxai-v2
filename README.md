@@ -1,1 +1,1 @@
-# Product-Review-Analyzer-App-watsonxai-v2
+# Product-Review-Analyzer-App-watsonxai
