@@ -77,12 +77,15 @@ class checkReview:
     
     def getSummary(self, input_review):
         
+        gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3, GenParams.REPETITION_PENALTY:1.9}
+        model_summary = Model( model_id, my_credentials, gen_parms, project_id, space_id, verify)   
+        
         input_summary_prompt = prompt_generation.generate_summary_prompt(input_review)
         print("\n \n")
         print("input_summary_prompt is: ", input_summary_prompt)
         print("\n \n")
         
-        generated_response_summary = model.generate(input_summary_prompt, gen_parms_override)
+        generated_response_summary = model_summary.generate(input_summary_prompt, gen_parms_override)
         generated_response_summary_text  = json.dumps( generated_response_summary['results'][0]['generated_text'], indent=2 )
         
         
