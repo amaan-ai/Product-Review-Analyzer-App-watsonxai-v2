@@ -44,7 +44,7 @@ def generate_sentiment_prompt(input_review):
 
     Returns
     -------
-    entity_prompt : str
+    sentiment_prompt : str
         prompt to be used as input to LLM for sentiment classification.
 
     '''
@@ -65,7 +65,7 @@ def generate_summary_prompt(input_review):
 
     Returns
     -------
-    entity_prompt : str
+    summary_prompt : str
         prompt to be used as input to LLM to generate summary.
 
     '''

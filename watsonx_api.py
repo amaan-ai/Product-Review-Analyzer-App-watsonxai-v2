@@ -14,7 +14,8 @@ my_credentials = {
 
 model_id    = ModelTypes.FLAN_UL2
 #gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3}
-gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3, GenParams.REPETITION_PENALTY:1.3}
+gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3, GenParams.REPETITION_PENALTY:1.3,
+               GenParams.DECODING_METHOD: 'greedy', GenParams.TEMPERATURE: 0.2}
 project_id  = os.environ.get('PROJECT_ID')
 space_id    = None
 verify      = False
@@ -37,7 +38,7 @@ class checkReview:
 
         Returns
         -------
-        entity_prompt : str
+        generated_response_entity_text : str
             Extracted entities from the review: PERSON, EMAIL, PHONE, PRODUCT, COMPETITOR
 
         '''
@@ -60,6 +61,19 @@ class checkReview:
     
     def getSentiment(self, input_review):
         
+        '''
+        Parameters
+        ----------
+        input_review : str
+            This is input review from the user.
+
+        Returns
+        -------
+        generated_response_sentiment_text : str
+            Sentiment the review: Positive, Negative, Neutral
+
+        '''
+        
         input_sentiment_prompt = prompt_generation.generate_sentiment_prompt(input_review)
         print("\n \n")
         print("input_sentiment_prompt is: ", input_sentiment_prompt)
@@ -77,15 +91,30 @@ class checkReview:
     
     def getSummary(self, input_review):
         
-        gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3, GenParams.REPETITION_PENALTY:1.9}
-        model_summary = Model( model_id, my_credentials, gen_parms, project_id, space_id, verify)   
+        '''
+        Parameters
+        ----------
+        input_review : str
+            This is input review from the user.
+
+        Returns
+        -------
+        generated_response_summary_text : str
+            Short summary of the review
+
+        '''
+        
+        # Modifying 'GenParams' to get dynamic summary
+        gen_parms_summary   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.5, GenParams.TOP_K: 50, GenParams.REPETITION_PENALTY:1.3,
+                       GenParams.DECODING_METHOD: 'sample', GenParams.TEMPERATURE: 1.8}
+        model_s = Model( model_id, my_credentials, gen_parms_summary, project_id, space_id, verify)   
         
         input_summary_prompt = prompt_generation.generate_summary_prompt(input_review)
         print("\n \n")
         print("input_summary_prompt is: ", input_summary_prompt)
         print("\n \n")
         
-        generated_response_summary = model_summary.generate(input_summary_prompt, gen_parms_override)
+        generated_response_summary = model_s.generate(input_summary_prompt, gen_parms_override)
         generated_response_summary_text  = json.dumps( generated_response_summary['results'][0]['generated_text'], indent=2 )
         
         
