@@ -13,7 +13,8 @@ my_credentials = {
 
 
 model_id    = ModelTypes.FLAN_UL2
-gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3}
+#gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3}
+gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TOP_K: 3, GenParams.REPETITION_PENALTY:1.3}
 project_id  = os.environ.get('PROJECT_ID')
 space_id    = None
 verify      = False
