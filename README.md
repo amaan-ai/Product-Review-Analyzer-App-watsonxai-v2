@@ -27,10 +27,10 @@ This Project is created with:
 ## Example Illustrations
 
 ### Example 1: Extracting Single Entities
-![Entity Extraction Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/tree/main/sample_test_runs/test_run_1.jpg)
+![Entity Extraction Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/blob/main/sample_test_runs/test_run_1.jpg)
 
 ### Example 2: Extracting NULL Entities
-![Sentiment Analysis Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/tree/main/sample_test_runs/test_run_2.jpg)
+![Sentiment Analysis Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/blob/main/sample_test_runs/test_run_2.jpg)
 
 ### Example 3: Extracting Multiple Entities
-![Review Summarization Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/tree/main/sample_test_runs/test_run_3.jpg)
+![Review Summarization Example](https://github.com/amaan-ai/Product-Review-Analyzer-App-watsonxai-v2/blob/main/sample_test_runs/test_run_3.jpg)
