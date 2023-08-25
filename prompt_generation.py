@@ -26,7 +26,7 @@ def generate_entity_prompt(input_review):
     entity_prompt = f"""Given a product review as input. You have to extract the following entities from it, (only if they are present): 1) Person, 2) Email, 3) Phone, 4) Product, 5) Competitor. \n
     You can consider the following examples of reviews and corresponing extracted entities to see how it should be done. Here are examples: \n <start of examples> \n {examples_data_NER_str} \n <end of examples> \n
     Now, here's the review enclosed within 3 backticks from which you have to extract entities: \n <start of review> ``` {input_review} ``` <end of review> 
-    Most Important point to note: a) Aways keep the structure of your 'Entities' response as illutrated in examples i.e. {{'Person':[<extracted entities>], 'Email':[<extracted entities>], 'Phone':[<extracted entities>], 'Product': [<extracted entities>], 'Competitor':[<extracted entities>]}} . b) In your response, only give extracted entities from the review and not from any examples. c) If entities are not present, do not hallucinate, can keep it blank.
+    Most Important point to note: a) Aways keep the structure of your 'Entities' response as illutrated in examples i.e. {{'Person':[<extracted entities if any, else NULL>], 'Email':[<extracted entities if any, else NULL>], 'Phone':[<extracted entities if any, else NULL>], 'Product': [<extracted entities if any, else NULL>], 'Competitor':[<extracted entities if any, else NULL>]}} . b) In your response, only give extracted entities from the review and not from any examples. c) If entities are not present return 'NULL', do not hallucinate, cross check your response and do not provide fake entities.
     """
 
     return entity_prompt
@@ -83,7 +83,7 @@ def generate_summary_prompt(input_review):
     summary_prompt = f"""Given a product review as input. You have to generate a shorter summary of that review.
     You can consider the following examples of reviews and their corresponing summary to see how it should be done. Here are examples: \n <start of examples> \n {examples_data_summary_str} \n <end of examples> \n 
     Now, here's the review enclosed within 3 backticks from which you have to generate a short summary: \n <start of review> ``` {input_review} ``` <end of review>  
-    Important point to note: a) Only provide generated summary in your response. b) Do not exceed the generated summary length by 250 characters.
+    Important point to note: a) Only provide generated summary in your response. b) Most important, do not exceed the generated summary length by 250 characters. c) Do not repeat review in your response.
     """
     
     return summary_prompt
