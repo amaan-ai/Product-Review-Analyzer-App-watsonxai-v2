@@ -3,7 +3,7 @@
 Try [Review Analyzer App](https://reviews-watson.streamlit.app/)
 
 ## Introduction
-The Product Review Analyzer extracts insights from product reviews, helping businesses identify key points, measure sentiment, and understand customer feedback..
+The Product Review Analyzer extracts insights from product reviews, helping businesses identify key points, measure sentiment, and understand customer feedback.
 
 ## Features
 1. **Entity Extraction**: Extracts entities such as:
