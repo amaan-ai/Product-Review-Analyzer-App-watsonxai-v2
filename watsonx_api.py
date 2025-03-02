@@ -18,7 +18,7 @@ gen_parms   = {GenParams.MAX_NEW_TOKENS: 200, GenParams.TOP_P: 0.3, GenParams.TO
                GenParams.DECODING_METHOD: 'greedy', GenParams.TEMPERATURE: 0.2}
 project_id  = os.environ.get('PROJECT_ID')
 space_id    = None
-verify      = True
+verify      = False
 model = Model( model_id, my_credentials, gen_parms, project_id, space_id, verify)   
 gen_parms_override = None
 
