@@ -6,3 +6,15 @@ node_modules/
 
 # Ignore environment variables
 .validate
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore build files
+dist/
+build/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
